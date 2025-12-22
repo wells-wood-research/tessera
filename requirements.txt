@@ -1,0 +1,16 @@
+ampal==1.5.3
+pandas==2.0.3
+setuptools>=65.5.1
+h5py
+tabulate
+torch==2.3.0
+torch_geometric==2.5.3
+lightning==2.2.5
+matplotlib==3.7.4
+mlflow==2.13.2
+numba==0.58.1
+streamlit==1.35.0
+stmol==0.0.9
+py3Dmol==2.0.0.post2
+pyvis==0.3.2
+ipython-genutils==0.2.0
