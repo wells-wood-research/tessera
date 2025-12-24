@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 160">
+  <defs>
+    <linearGradient id="blueTileV2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealTileV2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1abc9c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a085;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greyTileV2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bdc3c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadowV2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="white" rx="15" />
+
+  <g transform="translate(0, 0)" filter="url(#dropShadowV2)">
+    <path d="M40,75 L100,45 L160,75 L220,45 L220,105" 
+          stroke="#7f8c8d" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0, 8"/>
+
+    <rect x="20" y="60" width="40" height="40" rx="8" fill="url(#blueTileV2)" stroke="white" stroke-width="2"/>
+    <rect x="80" y="30" width="40" height="40" rx="8" fill="url(#tealTileV2)" stroke="white" stroke-width="2"/>
+    
+    <rect x="140" y="60" width="40" height="40" rx="8" fill="url(#greyTileV2)" stroke="white" stroke-width="2"/>
+    
+    <rect x="200" y="30" width="40" height="40" rx="8" fill="url(#blueTileV2)" stroke="white" stroke-width="2"/>
+    <rect x="200" y="90" width="40" height="40" rx="8" fill="url(#tealTileV2)" stroke="white" stroke-width="2"/>
+  </g>
+
+  <text x="270" y="95" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="100" fill="#2c3e50" letter-spacing="-2">
+    tessera
+  </text>
+  
+  <text x="275" y="125" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21.5" fill="#7f8c8d" letter-spacing="1">
+    FROM ATOMS TO FRAGMENTS
+  </text>
+</svg>
