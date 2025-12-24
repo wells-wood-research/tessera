@@ -97,7 +97,7 @@ distance = ged.compare([graph_a.graph, graph_b.graph], None)
 
 ## How it works
 
-Tessera is a library for representing proteins as fragments. It is library-agnostic, allowing users to define custom structural motifs. By default, it uses a curated vocabulary of 40 structural fragments (9-37 residues each) identified by Alva et al. (2015):
+Tessera is a library for representing proteins as fragments. It is library-agnostic, allowing users to define custom structural motifs. By default, it uses a curated vocabulary of 40 structural fragments (9-37 residues each) identified by [Alva et al. (2015)](https://elifesciences.org/articles/09410):
 
 1. **Feature extraction** — Compute backbone torsion angles (φ, ψ).
 2. **Convolution** — A sliding window algorithm scans the backbone to score similarity against each reference fragment.
@@ -106,7 +106,7 @@ Tessera is a library for representing proteins as fragments. It is library-agnos
 
 ![Fragment-based protein representation](img/fragment_overview.png)
 
-*Figure 1: Fragment-based protein representation of the ZIF268 Zinc Finger (PDB: 1AAY). Detected Fragments 14 (in blue) correspond to DNA- and metal-binding functions. Unclassified regions are labeled as "unknown" (white). The structure is represented as a Fragment Graph, which preserves connectivity via peptide bonds (dark edges) and spatial proximity (dotted edges), or as a Fragment Set with unique fragment types. DNA is shown in yellow; zinc ions in purple.*
+*Figure 1: Fragment-based protein representation of the ZIF268 Zinc Finger (PDB: 1AAY). The structure is represented as a Fragment Graph, which preserves connectivity via peptide bonds (dark edges) and spatial proximity (dotted edges), or as a Fragment Set with unique fragment types. DNA is shown in yellow; zinc ions in purple.*
 
 ## Performance
 
