@@ -1,0 +1,4 @@
+python src/scripts/functional_fragments/rmsd_check_proteins.py --original_pdb_path  src/scripts/functional_fragments/pdb_files/ --design_pdb_path data/fragment_designs_experiment_3_rmsd8
+python src/scripts/functional_fragments/rmsd_check_proteins.py --original_pdb_path  src/scripts/functional_fragments/pdb_files/ --design_pdb_path data/fragment_designs_experiment_3
+python src/scripts/functional_fragments/rmsd_check_proteins.py --original_pdb_path  src/scripts/functional_fragments/pdb_files/ --design_pdb_path data/fragment_designs_experiment_2
+python src/scripts/functional_fragments/rmsd_check_proteins.py --original_pdb_path  src/scripts/functional_fragments/pdb_files/ --design_pdb_path data/fragment_designs_experiment_1

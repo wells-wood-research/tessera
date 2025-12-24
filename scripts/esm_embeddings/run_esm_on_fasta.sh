@@ -1,0 +1,1 @@
+ esm-extract esm2_t33_650M_UR50D filtered_sequences.fasta /scratch/esm/esm_embeddings/ --include mean per_tok --repr_layers 0 32 33
