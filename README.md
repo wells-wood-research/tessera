@@ -14,21 +14,21 @@
 
 Tessera is a fully vectorised Python library that decomposes protein structures into structural fragments. By default, it uses a curated vocabulary of 40 evolutionarily conserved structural fragments, enabling:
 
-- **Fast structural comparison** — 68× faster than RMSD-based methods (including initialisation)
-- **Compact representation** — 90% reduction in memory requirements
-- **Interpretability** — Biologically meaningful structural motifs
-- **Dual representations** — Bag-of-fragments for fast search; fragment graphs for structure-aware comparisons
+- **Fast structural comparison**: ~68× faster than RMSD-based methods (including initialisation)
+- **Compact representation**: 90% reduction in memory requirements
+- **Interpretability**: Biologically meaningful structural motifs
+- **Dual representations**: Bag-of-fragments for fast search; fragment graphs for structure-aware comparisons
 
 ## Installation
 
 ```bash
-pip install git+[https://github.com/wells-wood-research/tessera](https://github.com/wells-wood-research/tessera)
+pip install git+https://github.com/wells-wood-research/tessera
 ```
 
 Or for development:
 
 ```bash
-git clone [https://github.com/wells-wood-research/tessera](https://github.com/wells-wood-research/tessera)
+git clone https://github.com/wells-wood-research/tessera
 cd tessera
 pip install -e .
 ```
@@ -57,42 +57,52 @@ for frag in result.classification_map:
 
 ### Compute structural similarity
 
+**0. Prepare graphs**
+
+First, convert your classification results into graphs and ensure attributes are formatted correctly for comparison.
+
+```python
+import gmatch4py as gm
+from tessera.fragments.fragments_graph import StructureFragmentGraph
+
+# Convert classification results to NetworkX graphs
+# (assuming result_a and result_b are outputs from classifier.classify_to_fragment)
+graph_a = StructureFragmentGraph.from_structure_fragment(result_a).graph
+graph_b = StructureFragmentGraph.from_structure_fragment(result_b).graph
+
+# Pre-processing: Convert attributes to strings for gmatch4py
+for g in [graph_a, graph_b]:
+    for _, data in g.nodes(data=True):
+        data["fragment_class"] = str(data["fragment_class"])
+    for _, _, data in g.edges(data=True):
+        data["peptide_bond"] = str(data["peptide_bond"])
+```
 **Option 1: Bag-of-fragments (fast)**
 
 ```python
-from collections import Counter
+# Initialize BagOfNodes comparator
+bon = gm.BagOfNodes()
+bon.set_attr_graph_used(node_attr_key="fragment_class", edge_attr_key="peptide_bond")
 
-# Extract composition
-fragments_a = Counter([f.fragment_class for f in result_a.classification_map])
-fragments_b = Counter([f.fragment_class for f in result_b.classification_map])
+# Calculate distance
+similarity_matrix = bon.compare([graph_a, graph_b], None)
+distance = bon.distance(similarity_matrix)[0, 1]
 
-# Jaccard similarity
-def jaccard(a, b):
-    keys = set(a.keys()) | set(b.keys())
-    intersection = sum(min(a[k], b[k]) for k in keys)
-    union = sum(max(a[k], b[k]) for k in keys)
-    return intersection / union
-
-similarity = jaccard(fragments_a, fragments_b)
+print(f"BagOfNodes Distance: {distance:.4f}")
 ```
 
 **Option 2: Fragment graphs (topology-aware)**
 
 ```python
-from tessera.fragments.fragments_graph import StructureFragmentGraph
+# Initialize GED with equal edit costs (node_del, node_ins, edge_del, edge_ins)
+ged = gm.GraphEditDistance(1, 1, 1, 1)
+ged.set_attr_graph_used(node_attr_key="fragment_class", edge_attr_key="peptide_bond")
 
-# Build graph representation
-graph = StructureFragmentGraph.from_structure_fragment(
-    result,
-    edge_distance_threshold=10.0  # Ångströms
-)
+# Calculate distance
+similarity_matrix = ged.compare([graph_a, graph_b], None)
+distance = ged.distance(similarity_matrix)[0, 1]
 
-# Graph Edit Distance (requires gmatch4py)
-from gmatch4py.ged import GraphEditDistance
-
-ged = GraphEditDistance(node_del=1, node_ins=1, edge_del=1, edge_ins=1)
-ged.set_attr_graph_used("fragment_class", None)
-distance = ged.compare([graph_a.graph, graph_b.graph], None)
+print(f"Graph Edit Distance: {distance:.4f}")
 ```
 
 ## How it works
