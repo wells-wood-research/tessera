@@ -17,7 +17,7 @@ Tessera is a fully vectorised Python library that decomposes protein structures 
 - **Fast structural comparison**: ~68× faster than RMSD-based methods (including initialisation)
 - **Compact representation**: 90% reduction in memory requirements
 - **Interpretability**: Biologically meaningful structural motifs
-- **Dual representations**: Bag-of-fragments for fast search; fragment graphs for structure-aware comparisons
+- **Dual representations**: fragment sets for fast search; fragment graphs for structure-aware comparisons
 
 ## Installation
 
@@ -77,7 +77,7 @@ for g in [graph_a, graph_b]:
     for _, _, data in g.edges(data=True):
         data["peptide_bond"] = str(data["peptide_bond"])
 ```
-**Option 1: Bag-of-fragments (fast)**
+**Option 1: BagOfNodes (fast)**
 
 ```python
 # Initialize BagOfNodes comparator
@@ -109,10 +109,10 @@ print(f"Graph Edit Distance: {distance:.4f}")
 
 Tessera is a library for representing proteins as fragments. It is library-agnostic, allowing users to define custom structural motifs. By default, it uses a curated vocabulary of 40 structural fragments (9-37 residues each) identified by [Alva et al. (2015)](https://elifesciences.org/articles/09410):
 
-1. **Feature extraction** — Compute backbone torsion angles (φ, ψ).
-2. **Convolution** — A sliding window algorithm scans the backbone to score similarity against each reference fragment.
-3. **Classification** — Assign non-overlapping fragment regions based on distance thresholds.
-4. **Representation** — Generate bag-of-fragments or graph.
+1. **Feature extraction**: Compute backbone torsion angles (φ, ψ).
+2. **Convolution**:A sliding window algorithm scans the backbone to score similarity against each reference fragment.
+3. **Classification**: Assign non-overlapping fragment regions based on distance thresholds.
+4. **Representation**: Generate fragments set or graph.
 
 ![Fragment-based protein representation](img/fragment_overview.png)
 
