@@ -1,8 +1,6 @@
 <div align="center">
-  <img src="img/logo.svg" alt="Tessera Logo" width="300">
+  <img src="img/logo.svg" alt="Tessera Logo" width="500">
 </div>
-
-# Tessera
 
 **A fully vectorised Python library for efficient protein representation and comparison**
 
