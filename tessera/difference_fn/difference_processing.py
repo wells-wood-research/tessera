@@ -6,7 +6,7 @@ import ampal
 import numpy as np
 import numpy.lib.stride_tricks as stride_tricks
 
-from src.difference_fn.difference_selector import difference_function_selector
+from tessera.difference_fn.difference_selector import difference_function_selector
 
 
 def select_first_ampal_assembly(
@@ -204,10 +204,10 @@ class StructureConvolutionOperator:
         reference_length = len(reference_sequence)
         fragment_length = fragment_sequence.shape[1]
 
-        # Ensure fragment is shorter than reference
+        # Ensure fragment is not longer than reference
         assert (
-            fragment_length < reference_length
-        ), "Fragment must be shorter than the reference sequence."
+            fragment_length <= reference_length
+        ), "Fragment must not be longer than the reference sequence."
 
         # Compute the number of valid sliding windows
         num_windows = reference_length - fragment_length + 1
@@ -274,8 +274,8 @@ class StructureConvolutionOperator:
         """
         assert step_size > 0, "Step size must be greater than 0"
         assert (
-            fragment_length < reference_length
-        ), "Fragment length must be smaller than the reference length"
+            fragment_length <= reference_length
+        ), "Fragment length must not be greater than the reference length"
         assert (
             reference_length > 0
         ), "Reference structure must have at least one residue"

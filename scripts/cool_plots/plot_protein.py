@@ -3,8 +3,8 @@ import typing as t
 from pathlib import Path
 import ampal
 
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
-from src.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
 import matplotlib.pyplot as plt
 
 import numpy as np

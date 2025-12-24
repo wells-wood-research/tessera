@@ -2,13 +2,9 @@ import numpy as np
 import pytest
 from pathlib import Path
 import random
-from src.difference_fn.angle_difference import (
-    CorrDifferenceStrategy,
+from tessera.difference_fn.angle_difference import (
     LogPrDifferenceStrategy,
     RamRmsdDifferenceStrategy,
-    RmsDifferenceStrategy,
-    SphereDifferenceStrategy,
-    load_fragments_angles,
 )
 
 
@@ -19,6 +15,7 @@ def set_random_seed():
 
 
 def create_mock_ampal(angles):
+    """Create a mock AMPAL object for testing."""
     class MockResidue:
         def __init__(self, phi, psi):
             self.tags = {"phi": phi, "psi": psi}
@@ -58,39 +55,14 @@ def generate_variable_angle_pairs():
     return variable_angle_sets
 
 
-def test_load_fragments_angles(tmp_path: Path):
-    # Create a mock .npy file
-    fragment_number = "1"
-    folder = tmp_path / fragment_number
-    folder.mkdir()
-    angles = np.random.rand(10, 3)
-    np.save(folder / "angles.npy", angles)
-
-    # Call the function under test
-    fragments_to_angles = load_fragments_angles(tmp_path)
-
-    # Assert that the data_paths is loaded correctly
-    assert fragment_number in fragments_to_angles
-    loaded_angles = fragments_to_angles[fragment_number]
-    assert np.allclose(
-        loaded_angles, np.mean(angles, axis=0)
-    ), "The loaded angles do not match the expected values."
-
-
 @pytest.fixture(
     params=[
-        RmsDifferenceStrategy(),
-        SphereDifferenceStrategy(),
         RamRmsdDifferenceStrategy(),
         LogPrDifferenceStrategy(),
-        CorrDifferenceStrategy(),
     ],
     ids=[
-        "RmsDifference",
-        "SphereDifference",
         "RamRmsdDifference",
         "LogPrDifference",
-        "CorrDifference",
     ],
 )
 def strategy_fixture(request):
@@ -107,20 +79,28 @@ def strategy_fixture(request):
     ],
 )
 def test_strategy_behaviors(strategy_fixture, test_type):
-    # Setup common test data_paths and mocks
+    # Setup common test data and mocks
     angles_identical = [(-60, -45), (-45, -30), (60, 45)]
     angles_different = [(60, 45), (45, 30), (-60, -45)]
     mock_ampal_identical = create_mock_ampal(angles_identical)
     mock_ampal_different = create_mock_ampal(angles_different)
 
     if test_type == "identical_structures":
+        data_identical = strategy_fixture.get_ampal_data(mock_ampal_identical)
+        # Add batch dimension
+        data_identical = np.expand_dims(data_identical, axis=0)
         difference = strategy_fixture.calculate_difference(
-            mock_ampal_identical, mock_ampal_identical
+            data_identical, data_identical
         )
         assert_identical_structures_assertion(strategy_fixture, difference)
     elif test_type == "theoretical_bounds":
+        data_identical = strategy_fixture.get_ampal_data(mock_ampal_identical)
+        data_different = strategy_fixture.get_ampal_data(mock_ampal_different)
+        # Add batch dimensions
+        data_identical = np.expand_dims(data_identical, axis=0)
+        data_different = np.expand_dims(data_different, axis=0)
         difference = strategy_fixture.calculate_difference(
-            mock_ampal_identical, mock_ampal_different
+            data_identical, data_different
         )
         assert_theoretical_bounds_assertion(strategy_fixture, difference)
     elif test_type == "maximum_difference":
@@ -128,8 +108,13 @@ def test_strategy_behaviors(strategy_fixture, test_type):
         angles_max_diff2 = [(181, 361)] * 10
         mock_ampal_max_diff1 = create_mock_ampal(angles_max_diff1)
         mock_ampal_max_diff2 = create_mock_ampal(angles_max_diff2)
+        data_max_diff1 = strategy_fixture.get_ampal_data(mock_ampal_max_diff1)
+        data_max_diff2 = strategy_fixture.get_ampal_data(mock_ampal_max_diff2)
+        # Add batch dimensions
+        data_max_diff1 = np.expand_dims(data_max_diff1, axis=0)
+        data_max_diff2 = np.expand_dims(data_max_diff2, axis=0)
         difference = strategy_fixture.calculate_difference(
-            mock_ampal_max_diff1, mock_ampal_max_diff2
+            data_max_diff1, data_max_diff2
         )
         assert_maximum_difference_assertion(strategy_fixture, difference)
     if test_type == "variable_size_test":
@@ -143,8 +128,13 @@ def test_strategy_behaviors(strategy_fixture, test_type):
                 index + 1 :
             ]:  # Compare with every other set
                 mock_ampal2 = create_mock_ampal(comparison_set)
+                data_ampal1 = strategy_fixture.get_ampal_data(mock_ampal1)
+                data_ampal2 = strategy_fixture.get_ampal_data(mock_ampal2)
+                # Add batch dimensions
+                data_ampal1 = np.expand_dims(data_ampal1, axis=0)
+                data_ampal2 = np.expand_dims(data_ampal2, axis=0)
                 difference = strategy_fixture.calculate_difference(
-                    mock_ampal1, mock_ampal2
+                    data_ampal1, data_ampal2
                 )
                 # Use an assertion that checks if the difference is within the expected theoretical bounds
                 assert_theoretical_bounds_assertion(strategy_fixture, difference)

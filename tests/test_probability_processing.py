@@ -3,7 +3,7 @@ import pytest
 import numpy as np
 import random
 
-from src.difference_fn.probability_processing import (
+from tessera.difference_fn.probability_processing import (
     ProbabilityProcessor,
 )
 

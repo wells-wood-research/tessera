@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
 
 
 class GraphProcessor:

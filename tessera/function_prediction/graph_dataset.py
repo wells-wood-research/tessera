@@ -5,8 +5,8 @@ import torch
 from torch_geometric.data import Dataset
 from tqdm import tqdm
 
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
-from src.fragments.fragments_graph import StructureFragmentGraph
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.fragments.fragments_graph import StructureFragmentGraph
 
 
 class GraphCreator:

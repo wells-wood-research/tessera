@@ -17,12 +17,12 @@ from ampal.amino_acids import polarity_Zimmerman, residue_charge
 from scipy.stats import linregress, pearsonr, spearmanr
 from tqdm import tqdm
 
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
-from src.fragments.fragments_graph import StructureFragmentGraph
-from src.training.data_processing.dataset import GraphCreator
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.fragments.fragments_graph import StructureFragmentGraph
+from tessera.training.data_processing.dataset import GraphCreator
 import mdtraj as md  # Add this import to the top of your script
-from src.fragments.fragments_classifier import FragmentDetail
+from tessera.fragments.fragments_classifier import FragmentDetail
 
 # Mapping of classes to categories
 classes = {

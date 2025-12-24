@@ -31,9 +31,9 @@ from sklearn.metrics import (
 )
 from tqdm import tqdm
 
-from src.difference_fn.shape_difference import RmsdBiopythonStrategy
-from src.fragments.classification_config import selected_pdbs
-from src.fragments.fragments_graph import StructureFragmentGraph
+from tessera.difference_fn.shape_difference import RmsdBiopythonStrategy
+from tessera.fragments.classification_config import selected_pdbs
+from tessera.fragments.fragments_graph import StructureFragmentGraph
 import math
 
 from scipy.stats import spearmanr

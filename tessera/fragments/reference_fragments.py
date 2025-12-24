@@ -4,9 +4,9 @@ from pathlib import Path
 import ampal
 import numpy as np
 
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.difference_fn.shape_difference import ShapeDifferenceStrategy
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.difference_fn.shape_difference import ShapeDifferenceStrategy
 
 
 class ReferenceFragment:

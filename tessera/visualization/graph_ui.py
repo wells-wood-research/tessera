@@ -14,13 +14,13 @@ from pyvis.network import Network
 from stmol import showmol
 from streamlit.components.v1 import html
 
-from src.difference_fn.difference_processing import (
+from tessera.difference_fn.difference_processing import (
     StructureConvolutionOperator,
     select_first_ampal_assembly,
 )
-from src.fragments.fragments_graph import StructureFragmentGraph
-from src.training.data_processing.dataset import create_interpro_encoder
-from src.training.train import GraphLevelGNN
+from tessera.fragments.fragments_graph import StructureFragmentGraph
+from tessera.training.data_processing.dataset import create_interpro_encoder
+from tessera.training.train import GraphLevelGNN
 
 
 # Function to parse command-line arguments

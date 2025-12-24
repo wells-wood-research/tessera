@@ -9,7 +9,7 @@ from torch_geometric.data import Batch
 from torch_geometric.loader import DataLoader
 from torch_geometric.nn import summary
 
-from src.function_prediction.uniprot_processing import (
+from tessera.function_prediction.uniprot_processing import (
     Ontology,
     one_hot_encode_go_labels,
 )

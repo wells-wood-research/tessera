@@ -12,11 +12,11 @@ from pyvis.network import Network
 from stmol import showmol
 from streamlit.components.v1 import html
 
-from src.fragments.classification_config import go_to_prosite
-from src.fragments.fragments_graph import StructureFragmentGraphIO
-from src.function_prediction.uniprot_processing import UniprotDownloader
-from src.visualization.fold_coverage import load_graph_creator
-from src.visualization.graph_ui import color_peptide_bonds, convert_to_serializable
+from tessera.fragments.classification_config import go_to_prosite
+from tessera.fragments.fragments_graph import StructureFragmentGraphIO
+from tessera.function_prediction.uniprot_processing import UniprotDownloader
+from tessera.visualization.fold_coverage import load_graph_creator
+from tessera.visualization.graph_ui import color_peptide_bonds, convert_to_serializable
 
 
 def load_pdb_files(folder: Path):

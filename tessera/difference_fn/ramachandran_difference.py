@@ -5,7 +5,7 @@ from ampal import Polypeptide
 from scipy.spatial.distance import jensenshannon
 from scipy.stats import gaussian_kde, vonmises
 
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
 
 
 class RamachandranCircularKDE(AngleDifferenceStrategy):

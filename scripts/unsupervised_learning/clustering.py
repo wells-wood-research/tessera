@@ -10,7 +10,7 @@ from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 from sklearn.preprocessing import LabelEncoder
 from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 
-from src.fragments.fragments_graph import StructureFragmentGraph
+from tessera.fragments.fragments_graph import StructureFragmentGraph
 
 
 def main(args):

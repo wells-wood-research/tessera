@@ -3,11 +3,11 @@ import pandas as pd
 
 from pathlib import Path
 
-from src.difference_fn.difference_processing import (
+from tessera.difference_fn.difference_processing import (
     get_residue_ids,
     select_first_ampal_assembly,
 )
-from src.fragments.fragments_classifier import StructureToFragmentClassifier
+from tessera.fragments.fragments_classifier import StructureToFragmentClassifier
 
 if __name__ == "__main__":
     fragments_df = pd.read_csv("data/fragments.csv")

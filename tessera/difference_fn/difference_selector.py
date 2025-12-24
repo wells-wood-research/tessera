@@ -1,10 +1,10 @@
 import inspect
 import typing as t
 
-from src.difference_fn import angle_difference, shape_difference, sequence_difference
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
-from src.difference_fn.shape_difference import ShapeDifferenceStrategy
-from src.difference_fn.sequence_difference import SequenceDifferenceStrategy
+from tessera.difference_fn import angle_difference, shape_difference, sequence_difference
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.shape_difference import ShapeDifferenceStrategy
+from tessera.difference_fn.sequence_difference import SequenceDifferenceStrategy
 
 
 def _register_strategies() -> t.Tuple[

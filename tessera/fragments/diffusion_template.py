@@ -9,9 +9,9 @@ import ampal
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.fragments.fragments_graph import StructureFragmentGraphIO
-from src.visualization.fold_coverage import load_graph_creator
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.fragments.fragments_graph import StructureFragmentGraphIO
+from tessera.visualization.fold_coverage import load_graph_creator
 
 
 def convert_pdb_to_fg(

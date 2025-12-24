@@ -12,13 +12,13 @@ from tqdm import tqdm
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
-from src.fragments.classification_config import (
+from tessera.fragments.classification_config import (
     UniprotResults,
     go_to_prosite,
     selected_pdbs,
 )
-from src.function_prediction.uniprot_processing import Ontology, UniprotDownloader
-from src.scripts.functional_fragments.foldseek_check_proteins import (
+from tessera.function_prediction.uniprot_processing import Ontology, UniprotDownloader
+from tessera.scripts.functional_fragments.foldseek_check_proteins import (
     add_go_terms,
     get_uniprot_from_pdb,
     process_all_pdb_files,

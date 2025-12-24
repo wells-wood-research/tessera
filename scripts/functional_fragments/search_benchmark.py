@@ -12,10 +12,10 @@ import numpy as np
 from Bio.Align import PairwiseAligner, substitution_matrices
 import gmatch4py as gm
 
-from src.difference_fn.shape_difference import RmsdBiopythonStrategy
-from src.fragments.classification_config import selected_pdbs
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
-from src.fragments.fragments_graph import StructureFragmentGraph
+from tessera.difference_fn.shape_difference import RmsdBiopythonStrategy
+from tessera.fragments.classification_config import selected_pdbs
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.fragments.fragments_graph import StructureFragmentGraph
 
 
 class SearchBase(ABC):

@@ -6,7 +6,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.patches as patches
 
-from src.fragments.fragments_classifier import StructureFragment
+from tessera.fragments.fragments_classifier import StructureFragment
 
 
 def check_fragment_number(fragment_number: int):

@@ -17,8 +17,8 @@ import torch
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.fragments.classification_config import (FUNC_DICT, NAMESPACES_REVERT, UniprotResults, go_to_prosite, )
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.fragments.classification_config import (FUNC_DICT, NAMESPACES_REVERT, UniprotResults, go_to_prosite, )
 
 
 class BeProfLoader:

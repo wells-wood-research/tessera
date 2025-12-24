@@ -14,14 +14,14 @@ from tqdm import tqdm
 from collections import Counter
 from multiprocessing import Pool
 
-from src.fragments.classification_config import fragment_lengths, go_to_prosite
-from src.fragments.fragments_graph import StructureFragmentGraphIO
-from src.function_prediction.uniprot_processing import (
+from tessera.fragments.classification_config import fragment_lengths, go_to_prosite
+from tessera.fragments.fragments_graph import StructureFragmentGraphIO
+from tessera.function_prediction.uniprot_processing import (
     PrositeToUniprot,
     UniprotDownloader,
 )
-from src.training.data_processing.dataset import GraphCreator
-from src.visualization.fold_coverage import load_graph_creator
+from tessera.training.data_processing.dataset import GraphCreator
+from tessera.visualization.fold_coverage import load_graph_creator
 from tqdm import tqdm
 
 

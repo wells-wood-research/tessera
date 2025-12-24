@@ -12,8 +12,8 @@ from tqdm import tqdm
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from src.fragments.classification_config import UniprotResults, go_to_prosite
-from src.function_prediction.uniprot_processing import Ontology, UniprotDownloader
+from tessera.fragments.classification_config import UniprotResults, go_to_prosite
+from tessera.function_prediction.uniprot_processing import Ontology, UniprotDownloader
 
 
 def submit_job(pdb_file_path: Path) -> dict:

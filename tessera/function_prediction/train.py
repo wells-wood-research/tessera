@@ -12,25 +12,25 @@ from pytorch_lightning import LightningModule
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from torch_geometric.loader import DataLoader
 
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
-from src.function_prediction.graph_dataset import (
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.function_prediction.graph_dataset import (
     GraphCreator,
     GraphDataset,
     create_graphs,
 )
-from src.function_prediction.model import FragmentNetGNN
-from src.function_prediction.train_utils import encode_labels, log_model_summary, benchmark
-from src.function_prediction.uniprot_processing import (
+from tessera.function_prediction.model import FragmentNetGNN
+from tessera.function_prediction.train_utils import encode_labels, log_model_summary, benchmark
+from tessera.function_prediction.uniprot_processing import (
     BeProfLoader,
     Ontology,
     UniprotDownloader,
     download_uniprot_files,
 )
-from src.training.data_processing.augmentation import SubgraphSampler
-from src.training.train import calculate_feature_dims
+from tessera.training.data_processing.augmentation import SubgraphSampler
+from tessera.training.train import calculate_feature_dims
 import pickle
 from collections import defaultdict
-from src.function_prediction.uniprot_processing import FUNC_DICT
+from tessera.function_prediction.uniprot_processing import FUNC_DICT
 
 
 def setup_loggers_and_callbacks(

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import tempfile
 
 # Adjust the import below to match your project structure.
-from src.fragments.fragments_graph import StructureFragmentGraphIO
+from tessera.fragments.fragments_graph import StructureFragmentGraphIO
 
 
 def find_fg_files(base_path):

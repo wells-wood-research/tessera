@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.difference_fn.shape_difference import RmsdBiopythonStrategy
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.difference_fn.shape_difference import RmsdBiopythonStrategy
 
 
 def sort_categories(categories: t.List[str]) -> t.List[str]:

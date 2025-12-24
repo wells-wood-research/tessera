@@ -5,11 +5,11 @@ import dask
 from dask.distributed import Client
 import os
 from tqdm import tqdm
-from src.difference_fn.difference_processing import (
+from tessera.difference_fn.difference_processing import (
     StructureConvolutionOperator,
     select_first_ampal_assembly,
 )
-from src.training.data_processing.data_selectors import InterproDatasetSelector
+from tessera.training.data_processing.data_selectors import InterproDatasetSelector
 
 
 def extract_unique_pdb_chains(df, output_file):

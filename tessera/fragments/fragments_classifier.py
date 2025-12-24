@@ -5,14 +5,14 @@ from typing import Callable, Dict, List, Tuple
 
 import numpy as np
 
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
-from src.difference_fn.difference_processing import StructureConvolutionOperator
-from src.difference_fn.probability_processing import (
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.difference_processing import StructureConvolutionOperator
+from tessera.difference_fn.probability_processing import (
     FragmentDetail,
     ProbabilityProcessor,
 )
-from src.fragments.fragments_graph import StructureFragmentGraph
-from src.fragments.reference_fragments import ReferenceFragmentCreator
+from tessera.fragments.fragments_graph import StructureFragmentGraph
+from tessera.fragments.reference_fragments import ReferenceFragmentCreator
 
 
 class StructureFragment:

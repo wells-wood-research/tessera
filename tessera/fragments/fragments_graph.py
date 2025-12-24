@@ -8,8 +8,8 @@ import numpy as np
 import torch
 from torch_geometric.data import Data
 
-from src.difference_fn.probability_processing import FragmentDetail
-from src.fragments.classification_config import (
+from tessera.difference_fn.probability_processing import FragmentDetail
+from tessera.fragments.classification_config import (
     categorical_edge_attrs,
     categorical_node_attrs,
     max_fragment_length,

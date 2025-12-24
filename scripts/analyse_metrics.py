@@ -9,7 +9,7 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from src.fragments.fragments_classifier import StructureToFragmentClassifier
+from tessera.fragments.fragments_classifier import StructureToFragmentClassifier
 
 
 # Function to process a single file and extract data_paths

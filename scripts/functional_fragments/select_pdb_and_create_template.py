@@ -5,7 +5,7 @@ from typing import Dict, List, Tuple
 from pathlib import Path
 import requests
 import ampal
-from src.fragments.classification_config import go_to_prosite
+from tessera.fragments.classification_config import go_to_prosite
 
 
 def download_pdb(pdb_id: str, output_dir: Path) -> bool:

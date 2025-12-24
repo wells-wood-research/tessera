@@ -1,7 +1,7 @@
 import typing as t
 from collections import namedtuple
 
-from src.fragments.classification_config import (
+from tessera.fragments.classification_config import (
     fragment_lengths,
     get_threshold,
     median_fragment_length,

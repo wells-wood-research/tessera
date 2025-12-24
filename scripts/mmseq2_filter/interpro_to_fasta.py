@@ -1,11 +1,11 @@
 import argparse
 from pathlib import Path
 from multiprocessing import Pool
-from src.difference_fn.difference_processing import (
+from tessera.difference_fn.difference_processing import (
     StructureConvolutionOperator,
     select_first_ampal_assembly,
 )
-from src.training.data_processing.data_selectors import InterproDatasetSelector
+from tessera.training.data_processing.data_selectors import InterproDatasetSelector
 
 
 def extract_unique_pdb_chains(df, output_file):

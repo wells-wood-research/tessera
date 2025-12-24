@@ -1,7 +1,7 @@
 import argparse
 from datetime import datetime
 import pandas as pd
-from src.training.data_processing.data_selectors import InterproDatasetSelector
+from tessera.training.data_processing.data_selectors import InterproDatasetSelector
 
 
 def create_representatives_csv(clusters_file, input_csv, output_csv):

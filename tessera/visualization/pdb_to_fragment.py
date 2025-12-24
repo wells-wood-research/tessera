@@ -1,8 +1,8 @@
 import argparse
 from pathlib import Path
 
-from src.fragments.fragments_classifier import EnsembleFragmentClassifier
-from src.fragments.fragments_graph import StructureFragmentGraph
+from tessera.fragments.fragments_classifier import EnsembleFragmentClassifier
+from tessera.fragments.fragments_graph import StructureFragmentGraph
 
 
 def main(args):

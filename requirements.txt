@@ -1,16 +1,47 @@
-ampal==1.5.3
-pandas==2.0.3
-setuptools>=65.5.1
-h5py
-tabulate
-torch==2.3.0
-torch_geometric==2.5.3
-lightning==2.2.5
-matplotlib==3.7.4
-mlflow==2.13.2
-numba==0.58.1
-streamlit==1.35.0
-stmol==0.0.9
-py3Dmol==2.0.0.post2
-pyvis==0.3.2
-ipython-genutils==0.2.0
+# Tessera: Fragment-Based Protein Representation
+# Core dependencies
+
+# Protein structure parsing
+ampal>=1.5.3
+
+# Scientific computing
+numpy>=1.21.0
+pandas>=2.0.0
+scipy>=1.9.0
+
+# Graph operations
+networkx>=2.8.0
+
+# Structural biology
+biopython>=1.80
+
+# Deep learning (required for graph neural networks)
+torch>=2.0.0
+torch-geometric>=2.3.0
+
+# Visualization
+matplotlib>=3.5.0
+h5py>=3.0.0
+tabulate>=0.9.0
+
+# PyTorch ecosystem (optional but recommended for full functionality)
+torch>=2.0.0
+torch_geometric>=2.3.0
+lightning>=2.0.0
+
+# ML tracking (optional)
+mlflow>=2.0.0
+numba>=0.57.0
+
+# Interactive visualization (optional)
+streamlit>=1.20.0
+stmol>=0.0.9
+py3Dmol>=2.0.0
+pyvis>=0.3.0
+
+# Graph matching (install separately - see README)
+# gmatch4py  # Install from: https://github.com/jacquesfize/GMatch4py
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0

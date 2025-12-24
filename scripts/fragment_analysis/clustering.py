@@ -15,15 +15,15 @@ from sklearn.metrics import (
     normalized_mutual_info_score,
 )
 
-from src.difference_fn.angle_difference import AngleDifferenceStrategy
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.difference_fn.difference_selector import difference_function_selector
-from src.difference_fn.ramachandran_difference import (
+from tessera.difference_fn.angle_difference import AngleDifferenceStrategy
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.difference_fn.difference_selector import difference_function_selector
+from tessera.difference_fn.ramachandran_difference import (
     RamachandranCircularKDE,
     RamachandranNormalKDE,
     RamachandranProjected3DKDE,
 )
-from src.fragments.reference_fragments import ReferenceFragmentCreator
+from tessera.fragments.reference_fragments import ReferenceFragmentCreator
 
 
 def get_fragment_color(fragment_id, fragment_to_class):

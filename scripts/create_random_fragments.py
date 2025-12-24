@@ -11,7 +11,7 @@ from ampal import AmpalContainer
 
 # --- PROJECT IMPORTS ---
 try:
-    from src.fragments.classification_config import fragment_lengths as FRAGMENT_LENGTHS
+    from tessera.fragments.classification_config import fragment_lengths as FRAGMENT_LENGTHS
 except ImportError:
     print("Warning: Could not import 'fragment_lengths'. Ensure you are in the project root.")
     sys.exit(1)

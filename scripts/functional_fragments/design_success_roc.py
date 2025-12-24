@@ -8,8 +8,8 @@ from multiprocessing.pool import ThreadPool  # Import ThreadPool
 from pathlib import Path
 from typing import List, Tuple
 import ampal
-from src.difference_fn.difference_processing import select_first_ampal_assembly
-from src.difference_fn.shape_difference import RmsdBiopythonStrategy
+from tessera.difference_fn.difference_processing import select_first_ampal_assembly
+from tessera.difference_fn.shape_difference import RmsdBiopythonStrategy
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,15 +19,15 @@ from matplotlib.colors import to_rgb
 from sklearn.metrics import hamming_loss
 from tqdm import tqdm
 
-from src.fragments.fragments_graph import StructureFragmentGraph
-from src.function_prediction.uniprot_processing import Ontology
-from src.scripts.functional_fragments.foldseek_check_proteins import (
+from tessera.fragments.fragments_graph import StructureFragmentGraph
+from tessera.function_prediction.uniprot_processing import Ontology
+from tessera.scripts.functional_fragments.foldseek_check_proteins import (
     fetch_go_terms,
     get_uniprot_from_pdb,
 )
 from multiprocessing import Pool
 
-from src.visualization.fold_coverage import load_graph_creator
+from tessera.visualization.fold_coverage import load_graph_creator
 import gmatch4py as gm
 
 # Mapping from Category components to binding column names
