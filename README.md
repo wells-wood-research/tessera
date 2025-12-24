@@ -1,12 +1,12 @@
 <div align="center">
   <img src="img/logo.svg" alt="Tessera Logo" width="500">
-</div>
 
-**A fully vectorised Python library for efficient protein representation and comparison**
+**A fully vectorised Python library for protein fragment representation and comparison**
 
 [![Paper](https://img.shields.io/badge/bioRxiv-2025.03.19.644162-b31b1b.svg)](https://www.biorxiv.org/content/10.1101/2025.03.19.644162)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+</div>
 
 ---
 
@@ -104,7 +104,7 @@ Tessera is a library for representing proteins as fragments. It is library-agnos
 3. **Classification** — Assign non-overlapping fragment regions based on distance thresholds.
 4. **Representation** — Generate bag-of-fragments or graph.
 
-![Fragment-based protein representation](images/fragment_overview.png)
+![Fragment-based protein representation](img/fragment_overview.png)
 
 *Figure 1: Fragment-based protein representation of the ZIF268 Zinc Finger (PDB: 1AAY). Detected Fragments 14 (in blue) correspond to DNA- and metal-binding functions. Unclassified regions are labeled as "unknown" (white). The structure is represented as a Fragment Graph, which preserves connectivity via peptide bonds (dark edges) and spatial proximity (dotted edges), or as a Fragment Set with unique fragment types. DNA is shown in yellow; zinc ions in purple.*
 
